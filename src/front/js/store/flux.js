@@ -53,30 +53,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  return true;
 			}, 
 			logoutUser: async () => {
-
-
-			}
-			logout: async () => {
 				try {
-				  let { token } = getStore();
-				  if (!token) {
-					console.warn("No hay token disponible para hacer logout");
-					return false;
-				  }
-		
-				  let resp = await fetch(`${apiUrl}/logout`, {
-					method: "POST",
-					headers: {
-					  Authorization: "Bearer " + token,
-					},
-				  });
-		
-				  if (!resp.ok) {
-					console.error("Error en la solicitud de logout:", resp.statusText);
-					return false;
-				  }
-		
-				  localStorage.clear();
+					let { token } = getStore();
+					if (!token) {
+					  console.warn("No hay token disponible para hacer logout");
+					  return false;
+					}
+					let resp = await fetch(`${apiUrl}/logout`, {
+						method: "POST",
+						headers: {
+						  Authorization: "Bearer " + token,
+						},
+					  });
+					  if (!resp.ok) {
+						console.error("Error en la solicitud de logout:", resp.statusText);
+						return false;
+					  }
+					  localStorage.clear();
 				  setStore({ token: null, userId: null});
 				  return true;
 				} catch (error) {
@@ -85,7 +78,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  setStore({ token: null, userId: null});
 				  return false;
 				}
-			  },
+			}
 			// Use getActions to call a function within a fuction
 			// exampleFunction: () => {
 			// 	getActions().changeColor(0, "green");
