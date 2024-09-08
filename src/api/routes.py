@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, Blueprint
 from api.models import db, User, TokenBlockList
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
-from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity, get_jwt
+from flask_jwt_extended import  create_access_token, jwt_required, get_jwt_identity, get_jwt
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
