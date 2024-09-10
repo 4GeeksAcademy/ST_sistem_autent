@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/home.css";
 
-export const Home = () => {
+
+export const Private = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="text-center mt-5">
-			home view, signup or login to private view.
+		<div className="container">
+			<h1>Private view</h1>
+			<img src="https://picsum.photos/id/237/536/354"/>
 		</div>
 	);
 };
